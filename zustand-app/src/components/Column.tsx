@@ -15,7 +15,12 @@ export default function Column({ state }: IProps) {
     return tasks.filter(task => task.status === state);
   }, [tasks, state]);
 
-  const handleAddTask = (title: string, description: string, state: TaskStatusType) => {
+  const handleAddTask = (
+    title: string,
+    description: string,
+    state: TaskStatusType
+  ) => {
+    // TODO: Add modal for adding task details
     document.startViewTransition(() => {
       addTask(title, description, state);
     });
