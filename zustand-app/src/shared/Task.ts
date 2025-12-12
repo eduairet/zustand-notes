@@ -1,15 +1,15 @@
-export const TaskStatus = {
+export const TASK_STATUS = {
   PLANNED: 'PLANNED',
   ONGOING: 'ONGOING',
   COMPLETED: 'DONE',
 } as const;
 
-export type TaskStatusType = (typeof TaskStatus)[keyof typeof TaskStatus];
+export type TaskStatusType = (typeof TASK_STATUS)[keyof typeof TASK_STATUS];
 
-export const statusColors: Record<TaskStatusType, string> = {
-  [TaskStatus.PLANNED]: 'sky-500',
-  [TaskStatus.ONGOING]: 'fuchsia-600',
-  [TaskStatus.COMPLETED]: 'emerald-600',
+export const STATUS_BG: Record<TaskStatusType, string> = {
+  [TASK_STATUS.PLANNED]: 'bg-sky-500',
+  [TASK_STATUS.ONGOING]: 'bg-fuchsia-600',
+  [TASK_STATUS.COMPLETED]: 'bg-emerald-600',
 };
 
 export class Task {
@@ -22,7 +22,7 @@ export class Task {
     id: string,
     title: string,
     description: string = 'No description provided.',
-    status: TaskStatusType = TaskStatus.PLANNED
+    status: TaskStatusType = TASK_STATUS.PLANNED
   ) {
     this.id = id;
     this.title = title;
